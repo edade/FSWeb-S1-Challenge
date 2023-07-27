@@ -216,9 +216,21 @@ Aşağıdakileri yapmak için fenomenEkle'i kullanın:
 
 ÖRNEK: fenomenEkle(fenomenler, 6, "Workintech", 10000000, 2022, "Instagram") çağrıldığında dizinin sonuna yukarıdaki nesne en sona eklenerek yeni fenomenler dizisini döndürmelidir. */
 
-function fenomenEkle(/*kod*/) {
-  /*kod*/
+function fenomenEkle(dizi, sırano, profil, takipci, gönderim, platform) {
+  const kopya = dizi.slice();
+  const fenomen = {
+    number: sırano,
+    profile: profil,
+    followers: takipci,
+    posts: gönderim,
+    platform: platform,
+  };
+  kopya.push(fenomen);
+  return kopya;
 }
+console.log(
+  fenomenEkle(fenomenler, 6, "Workintech", 10000000, 2022, "Instagram")
+);
 
 /* Görev 7:
 Aşağıdakileri yapmak için enFenomenler'yi kullanın:
