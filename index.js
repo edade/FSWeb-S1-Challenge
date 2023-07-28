@@ -148,10 +148,13 @@ Aşağıdakileri konsolda gösterim (console.log) işlemi gerçekleştirerek, yu
 (işlev yazmanıza gerek yok) */
 
 //(1) Dizideki ilk fenomen (0. dizin) profil (profile) adı
+
 //console.log(fenomenler[0].profile);
 
 //(2) Dizideki üçüncü fenomenin (2. dizin) takipçi (followers) sayısı
+
 //console.log(fenomenler[2].followers);
+
 /* Görev 2 (otomatik kontrol testi yapılmayacak):
 (işlev yazmanıza gerek yok)
 Fenomenler dizisinde bir yazım hatası var 😱 7. sıradaki fenomen 'Justin Bieber' ın soyismi 'Biber' olarak yanlış yazılmış. Bu sorunu düzeltin ve çalışmanızı kontrol etmek için console.log() yapın. */
@@ -181,7 +184,14 @@ Aşağıdakileri yapmak için profilListesi'ni kullanın:
 🌟 Dönüş ÖRNEĞİ: ["Instagram", "Cristiano Ronaldo", "Kylie"....]
 */
 
-function profilListesi() {}
+function profilListesi(dizi) {
+  const kopya = [...dizi];
+  for (let i = 0; i < kopya.length; i++) {
+    kopya[i] = kopya[i].profile;
+  }
+  return kopya;
+}
+console.log[profilListesi(fenomenler)];
 
 /* Görev 5:
 Aşağıdakileri yapmak için fenomenSil'i kullanın:
@@ -278,12 +288,17 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 */
 
 function platformaGoreCokGonderiYapanFenomen(dizi, platformname) {
+  let max = 0;
+  let sonuc = "";
   for (let i = 0; i < dizi.length; i++) {
-    if (platformname == dizi[i].platform) {
-      Math.max(dizi[i].posts);
-      return dizi[i].profile;
+    if (dizi[i].platform === platformname) {
+      if (dizi[i].posts > max) {
+        max = dizi[i].posts;
+        sonuc = dizi[i].profile;
+      }
     }
   }
+  return sonuc;
 }
 console.log[platformaGoreCokGonderiYapanFenomen(fenomenler, "Tiktok")];
 /* ***** GÖREVLERİN SONU ***** */
